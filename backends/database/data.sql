@@ -1,7 +1,9 @@
 -- Nota: Mostrará errores en VSCode, pero es código valido en MySQL
 
+-- Creamos la base de datos
 CREATE DATABASE `demodatabase`;
 
+-- Empezamos a usarla en MySQL
 USE `demodatabase`;
 
 -- Tabla sobre lenguajes de programación
@@ -12,3 +14,29 @@ CREATE TABLE IF NOT EXISTS `demodatabase`.`prog_langs` (
   `auth` VARCHAR(100) NULL, -- Autor del lenguaje
   `comp` VARCHAR(50) NULL, -- Compañía a la que pertenece
   PRIMARY KEY (`id`));
+
+-- Insertamos dos filas
+
+-- Primera fila
+INSERT INTO `demodatabase`.`prog_langs`
+(`name`,
+`rel_date`,
+`auth`,
+`comp`)
+VALUES (
+'Javascript',
+818100000,
+'Brendan Eich',
+'Netscape');
+
+-- Segunda fila
+INSERT INTO `demodatabase`.`prog_langs`
+(`name`,
+`rel_date`,
+`auth`,
+`comp`)
+VALUES (
+'Go',
+1257876000,
+'Robert Griesemer',
+'Google');
