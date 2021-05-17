@@ -4,7 +4,7 @@ El objetivo de este repositorio es demostrar la conectividad entre diferentes ba
 
 ## Backends
  - Node.js (Express Js) - 100% ✅ 
- - Go (Echo Framework) - 70% ▶ 
+ - Go (Echo Framework) - 10% ✅ 
  - ASP.NETCore - 0% ⚠
 
 ## Frontends
