@@ -53,22 +53,58 @@ func getLang(c echo.Context) error {
 }
 
 func updateUser(c echo.Context) error {
-	u := new(prog_langs)
-	if err := c.Bind(u); err != nil {
-		return err
-	}
 	id, _ := strconv.Atoi(c.Param("id"))
-	//users[id].Name = u.Name
-	return c.JSON(http.StatusOK, id)
+	db, err := ConnectDB()
+	if err != nil {
+		log.Fatal("FALLÓ CONEXIÓN A BDD", err)
+	}
+	var res prog_langs
+	// Encuentra fila con llave primaria ingresada en la variable id 
+	db.First(&res, id)
+
+	var params = new(prog_langs)
+	params.Name = c.FormValue("name")
+	rel_date, _ := strconv.Atoi(c.FormValue("rel_date"))
+	params.RelDate = rel_date
+	params.Auth = c.FormValue("auth")
+	params.Comp = c.FormValue("comp")
+
+	if(len(params.Name) > 0 && params.Name != ""){
+		res.Name = params.Name
+	}
+	if(params.RelDate> 0){
+		res.RelDate = params.RelDate
+	}
+	if(len(params.Auth) > 0 && params.Auth != ""){
+		res.Auth = params.Auth
+	}
+	if(len(params.Comp) > 0 && params.Comp != ""){
+		res.Comp = params.Comp
+	}
+	db.Save(&res)
+	return c.JSON(http.StatusOK, res)
 }
 
 func deleteUser(c echo.Context) error {
-	//id, _ := strconv.Atoi(c.Param("id"))
+	id, _ := strconv.Atoi(c.Param("id"))
+	db, err := ConnectDB()
+	if err != nil {
+		log.Fatal("FALLÓ CONEXIÓN A BDD", err)
+	}
+	var res prog_langs
+	db.Where("id = ?", id).Delete(&res)
 	return c.NoContent(http.StatusNoContent)
 }
 
 func getAllLangs(c echo.Context) error {
-	return c.JSON(http.StatusOK, "")
+	db, err := ConnectDB()
+	if err != nil {
+		log.Fatal("FALLÓ CONEXIÓN A BDD", err)
+	}
+	var res []prog_langs
+	// Encuentra fila con llave primaria ingresada en la variable id 
+	db.Find(&res)
+	return c.JSON(http.StatusOK, res)
 }
 
 func main() {
