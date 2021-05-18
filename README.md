@@ -10,7 +10,7 @@ El objetivo de este repositorio es demostrar la conectividad entre diferentes ba
 
 ## Frontends
 
- - [ ] Angular - 0%
+ - [ ] Angular - 80%
  - [ ] React - 0%
 
 # Instalación de Base de Datos
@@ -36,3 +36,14 @@ A continuación se explica cómo instalar las dependencias para correr los servi
  2. Ir hacia la carpeta del proyecto: `backends/express_api`
  3. Ejecutar el siguiente comando dentro de la carpeta: `npm install`
  4. Y luego ejecutar el siguiente para correr el server: `node .`
+
+# Instalación de Frontends
+A continuación se explica cómo instalar las dependencias para correr los clientes frontend.
+
+## Angular Client
+
+ 1. Instalar la última versión LTS de Node.js: https://nodejs.org/en/
+ 2. Ir hacia la carpeta del proyecto: `frontends/angular-client`
+ 3. Ejecutar el siguiente comando dentro de la carpeta: `npm install`
+ 4. Ejecutar el siguiente comando dentro de la carpeta: `npm i @angular-devkit/build-angular`
+ 5. Ejecutar el siguiente para correr el server: `ng serve`
