@@ -1,0 +1,33 @@
+<h2>Programming Languages</h2>
+
+<div>
+  <form [formGroup]="form" (ngSubmit)="add()">
+    <label>
+      Language name:
+      <input type="text" formControlName="name">
+    </label>
+    <label>
+      Author:
+      <input type="text" formControlName="auth">
+    </label>
+    <label>
+      Company:
+      <input type="text" formControlName="comp">
+    </label>
+    <label>
+      Release Date:
+      <input type="date" formControlName="rel_date">
+    </label>
+    <button type="submit" [disabled]="!form.valid">Submit</button>
+  </form>
+</div>
+
+<ul class="langs">
+  <li *ngFor="let lang of prolangs">
+    <a routerLink="/details/{{lang.id}}">
+      <span class="badge">{{lang.id}}</span> {{lang.name}}
+    </a>
+    <button class="delete" title="delete language"
+      (click)="delete(lang.id)">x</button>
+  </li>
+</ul>

@@ -1,8 +1,17 @@
 const express = require("express");
+const cors = require('cors');
 const app = express();
 const PORT = 8080;
 const db = require("./database");
 
+const corsOptions = {
+  origin: "*",
+  methods: "GET,PUT,POST,DELETE",
+  preflightContinue: false,
+  optionsSuccessStatus: 204
+}
+
+app.use(cors(corsOptions))
 app.use(express.json());
 
 app.get("/prog_langs", async (_, res) => {

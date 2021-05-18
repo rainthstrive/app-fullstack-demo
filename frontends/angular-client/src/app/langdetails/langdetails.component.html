@@ -1,0 +1,16 @@
+<div *ngIf="lang">
+    <h2>{{lang.name | uppercase}} Details</h2>
+    <div><span>id: </span>{{lang.id}}</div>
+    <div>
+      <label for="hero-name">Language name: </label>
+      <input id="hero-name" [(ngModel)]="lang.name" placeholder="Language name"/>
+      <br>
+      <label for="hero-name">Author name: </label>
+      <input id="hero-name" [(ngModel)]="lang.auth" placeholder="Author name"/>
+      <br>
+      <label for="hero-name">Company name: </label>
+      <input id="hero-name" [(ngModel)]="lang.comp" placeholder="Company name"/>
+    </div>
+    <button (click)="goBack()">go back</button>
+    <button (click)="save()">save</button>
+  </div>
