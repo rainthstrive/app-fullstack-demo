@@ -47,3 +47,6 @@ A continuación se explica cómo instalar las dependencias para correr los clien
  3. Ejecutar el siguiente comando dentro de la carpeta: `npm install`
  4. Ejecutar el siguiente comando dentro de la carpeta: `npm i @angular-devkit/build-angular`
  5. Ejecutar el siguiente para correr el server: `ng serve`
+
+# NOTA:
+Debe de tener abierta una instancia de MySQL, uno de los backends, y uno de los frontends para probar el fullstack.
