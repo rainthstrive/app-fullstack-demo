@@ -24,6 +24,12 @@
 
 <ul class="langs">
   <li *ngFor="let lang of prolangs">
+    <p *ngIf="lang.name=='Pyduino'">
+      Este es el nuevo PyDuino!
+    </p>
+    <p *ngIf="lang.name=='Go'">
+      Los Gophers son lo máximo!
+    </p>
     <a routerLink="/details/{{lang.id}}">
       <span class="badge">{{lang.id}}</span> {{lang.name}}
     </a>

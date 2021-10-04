@@ -23,6 +23,7 @@ export class LanglistComponent implements OnInit {
     this.getLangs();
   }
 
+  // Función para Retornar arreglo de registros
   getLangs(){
     this.service.getLangs()
     .subscribe(langs => {this.prolangs = langs; console.log(this.prolangs)})
